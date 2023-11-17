@@ -9,9 +9,6 @@ Welcome to my Competitive Programming Repository, a comprehensive archive showca
 - **Learning Resources**: A curated list of resources, including books, online courses, and tutorials, that have been instrumental in our competitive programming journey.
 - **Problem Set Archive**: An extensive collection of problem sets from various competitions, along with solutions and explanations. This section is continuously updated with new challenges and our approaches to solving them.
 
-## Contribution
-This repository is not just a personal archive; it's a platform for learning and collaboration. Contributions, suggestions, and discussions are warmly welcomed. Let's learn and grow together in the ever-evolving world of competitive programming!
-
 ## Acknowledgments
 Special thanks to the mentors, peers, and the entire Competitive Programming team at the Polytechnic University of Valencia for their support and guidance. This journey wouldn't have been the same without their invaluable contributions.
 
