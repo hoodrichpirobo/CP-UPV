@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Template{
+public class Plantilla{
     
     static java.util.Scanner in;
     
