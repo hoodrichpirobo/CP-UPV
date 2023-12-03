@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class Plantilla{
+public class Template{
     
     static java.util.Scanner in;
     
-    public static boolean casoDePruebaIII(){
+    public static boolean testCase(){
         if(!in.hasNext())
             return false;
         else {
@@ -13,7 +13,7 @@ public class Plantilla{
         }
     }
     
-    public static boolean casoDePruebaII(){
+    public static boolean testCase(){
         
         if()
             return false;
@@ -23,7 +23,7 @@ public class Plantilla{
         }
     }
     
-    public static void casoDePruebaI(){
+    public static void testCase(){
         
     }
     
@@ -31,12 +31,11 @@ public class Plantilla{
         
         in = new java.util.Scanner(System.in);
         
-        int numCasos = in.nextInt();
-        for(int i = 0; i < numCasos; i++)
-            casoDePruebaI();
+        int cases = in.nextInt();
+        for(int i = 0; i < cases; i++)
+            testCase();
         
-        while(casoDePruebaIII()){
-            
-        }
+        while(testCase()){}
+
     }
 }
