@@ -1,39 +1,30 @@
 import java.util.*;
 import java.io.*;
 
-class Solution{
-    static BufferedReader br;
-    static PrintWriter pw;
+public class Solution{
+    static BufferedReader in;
+    static PrintWriter out;
 
-    static int testCase(int h, int[] heights){
+    public static void main(String[] args) throws Exception {
+        in = new BufferedReader(new InputStreamReader(System.in));
+        out = new PrintWriter(System.out);
+
+        StringTokenizer tokens = new StringTokenizer(in.readLine());
+        int n = Integer.parseInt(tokens.nextToken()),
+            h = Integer.parseInt(tokens.nextToken());
+        
+        tokens = new StringTokenizer(in.readLine());
         int totalWidth = 0;
 
-        for(int each : heights){
-            if(each > h){
+        for(int i = 0; i < n; ++i){
+            if(Integer.parseInt(tokens.nextToken()) > h){
                 totalWidth += 2;
             }else{
                 totalWidth++;
             }
         }
 
-        return totalWidth;
-    }
-
-    public static void main(String[] args) throws Exception {
-        br = new BufferedReader(new InputStreamReader(System.in));
-        pw = new PrintWriter(System.out);
-
-        String[] token1 = br.readLine().split(" ");
-        int n = Integer.parseInt(token1[0]),
-            h = Integer.parseInt(token1[1]);
-        String[] token2 = br.readLine().split(" ");
-        int[] heights = new int[n];
-        for(int i = 0; i < n; ++i){
-            heights[i] = Integer.parseInt(token2[i]);
-        }
-
-        pw.println(testCase(h, heights));
-        
-        pw.close();
+        out.println(totalWidth);    
+        out.close();
     }
 }
