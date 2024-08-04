@@ -1,7 +1,9 @@
 import java.util.*;
+import java.io.*;
 
 public class tutorial {
-    static Scanner in;
+    static BufferedReader br;
+    static PrintWriter pw;
     static double totalTime;
 
     public static double factorial(int n) {
@@ -12,12 +14,15 @@ public class tutorial {
         return result;
     }
 
-    public static void main(String[] args) {
-        in = new Scanner(System.in);
+    public static void main(String[] args) throws Exception {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        pw = new PrintWriter(System.out);
 
-        int m = in.nextInt(),
-            n = in.nextInt(),
-            t = in.nextInt();
+        String[] token = br.readLine().split(" ");
+
+        int m = Integer.parseInt(token[0]),
+            n = Integer.parseInt(token[1]),
+            t = Integer.parseInt(token[2]);
 
         if (t == 1) {
             // Check if n is reasonably small to avoid large factorial calculations
@@ -45,9 +50,11 @@ public class tutorial {
         }
 
         if (m >= totalTime) {
-            System.out.println("AC");
+            pw.println("AC");
         } else {
-            System.out.println("TLE");
+            pw.println("TLE");
         }
+        
+        pw.close();
     }
 }
