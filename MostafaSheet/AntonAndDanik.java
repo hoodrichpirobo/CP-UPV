@@ -12,23 +12,20 @@ public class Solution{
         int n = Integer.parseInt(in.readLine());
         String str = in.readLine();
 
-        int AntonCount = 0,
-            DanikCount = 0;
+        int AntonCount = 0;
         for(int i = 0; i < n; ++i){
             char ch = str.charAt(i);
             if(ch == 'A'){
                 AntonCount++;
-            }else if(ch == 'D'){
-                DanikCount++;
             }
         }
 
-        if(AntonCount > DanikCount){
-            out.println("Anton");
-        }else if(DanikCount > AntonCount){
+        if(AntonCount == (n/2) && (n%2 == 0)){
+            out.println("Friendship");
+        }else if((n/2) >= AntonCount){
             out.println("Danik");
         }else{
-            out.println("Friendship");
+            out.println("Anton");
         }
 
         out.close();
