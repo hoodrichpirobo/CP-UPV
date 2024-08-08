@@ -5,17 +5,6 @@ public class Main{
     static BufferedReader in;
     static PrintWriter out;
 
-    static int solve() throws Exception{
-        StringTokenizer tokens = new StringTokenizer(in.readLine());
-
-        int approvals = 0;
-        while(tokens.hasMoreTokens()){
-            approvals += Integer.parseInt(tokens.nextToken());
-        }
-
-        return approvals >= 2 ? 1 : 0;
-    }
-
     public static void main(String[] args) throws Exception{
         in = new BufferedReader(new InputStreamReader(System.in));
         out = new PrintWriter(System.out);
@@ -23,7 +12,15 @@ public class Main{
         int n = Integer.parseInt(in.readLine()),
             sum = 0;
         while(n-->0){
-            sum += solve();
+            String line = in.readLine();
+            switch(line){
+                case "0 1 1":
+                case "1 0 1":
+                case "1 1 0":
+                case "1 1 1":
+                    ++sum;
+                    break;
+            }
         }
         out.println(sum);
 
