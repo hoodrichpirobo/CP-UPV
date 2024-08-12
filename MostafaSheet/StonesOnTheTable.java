@@ -1,4 +1,3 @@
-import java.util.*;
 import java.io.*;
 
 public class Main{
@@ -7,13 +6,15 @@ public class Main{
         PrintWriter out = new PrintWriter(System.out);
 
         int n = Integer.parseInt(in.readLine());
-        String line = in.readLine();
+        char[] line = in.readLine().toCharArray();
         int neighboring = 0;
-        for(int i = 0; i < n - 1; ++i){
-            if(line.charAt(i) == line.charAt(i+1)){
+        
+        for(int i = 1; i < n; ++i){
+            if(line[i - 1] == line[i]){
                 neighboring++;
             }
         }
+
         out.println(neighboring);
 
         out.close();
