@@ -1,4 +1,3 @@
-import java.util.*;
 import java.io.*;
 
 public class Main{
@@ -6,66 +5,21 @@ public class Main{
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter out = new PrintWriter(System.out);
 
-        String left = "",
-              right = "";
-        char[] line = in.readLine().toCharArray();
-        boolean delimeter = true;
-        for(int i = 0; i < line.length; i++){
-            if(line[i] == '|'){
-                delimeter = false;
-                continue;
-            }
+        String line = in.readLine();
+        int delimiter = line.indexOf("|");
+        String left = line.substring(0, delimiter),
+               right = line.substring(delimiter + 1);
+        line = in.readLine();
 
-            if(delimeter){
-                left += line[i];
+        for(int i = 0; i < line.length(); i++){
+            if(left.length() <= right.length()){
+                left += line.charAt(i);
             }else{
-                right += line[i];
+                right += line.charAt(i);
             }
         }
-
-        line = in.readLine().toCharArray();
-        int n = line.length,
-            diff = Math.abs(left.length() - right.length()),
-            j = 0;
-
-        if(diff <= n){
-            if(left.length() < right.length()){
-                String aux = left;
-                left = "";
-                for(int i = 0; i < diff; i++){
-                    left += line[i];
-                    j++;
-                }
-                left += aux;
-            }else if(right.length() < left.length()){
-                for(int i = 0; i < diff; i++){
-                    right += line[i];
-                    j++;
-                }
-            }
-        
-            if(left.length() == right.length()){
-                if((n-j)%2==0){
-                    int half = (n-j)/2;
-                    String aux = left;
-                    left = "";
-                    for(int i = j; i < half + j; i++){
-                        left += line[i];
-                    }
-                    left += aux;
-
-                    for(int i = half + j; i < n; i++){
-                        right += line[i];
-                    }
-
-                    out.println(left + "|" + right);
-                }else{
-                    out.println("Impossible");
-                }
-            }
-        }else{
-            out.println("Impossible");
-        } 
+        out.println(left.length() == right.length() ? 
+                left + "|" + right : "Impossible");
         
         out.close();
     }
