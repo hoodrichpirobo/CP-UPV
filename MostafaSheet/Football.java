@@ -11,26 +11,16 @@ public class Main{
     while(goals[0]<n/2 && goals[1]<n/2){
       goal = in.readLine();
 
-      if(a.equals("")){
+      if(a.equals("") || a.equals(goal)){
         a = goal;
         goals[0]++;
-        continue;
-      }
-
-      if(b.equals("") && !goal.equals(a)){
-        b = goal;
-        goals[1]++;
-        continue;
-      }
-
-      if(goal.equals(a)){
-        goals[0]++;
       }else{
+        b = goal;
         goals[1]++;
       }
     }
-    goal = goals[0] > goals[1] ? a : b;
-    out.println(goal);
+
+    out.println(goals[0] > goals[1] ? a : b);
 
     out.close();
   }
