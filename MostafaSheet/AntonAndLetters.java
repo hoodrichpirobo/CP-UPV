@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class Main{
   public static void main(String[] args) throws Exception {
@@ -7,15 +6,17 @@ public class Main{
     PrintWriter out = new PrintWriter(System.out);
 
     String line = in.readLine();
-    Set<Character> set = new HashSet<>();
+    int sum = 0;
     char c;
-    for(int i = 0; i < line.length(); i++){
-      c = line.charAt(i);
+    line = line.substring(1, line.length() - 1);
+    while(line.length()>0){
+      c = line.charAt(0);
+      line = line.replaceAll(c + "", "");
       if(Character.isLetter(c)){
-        set.add(c);
+        sum++;
       }
     }
-    out.println(set.size());
+    out.println(sum);
 
 
     out.close();
