@@ -7,31 +7,26 @@ public class Main{
         PrintWriter out = new PrintWriter(System.out);
 
         int n = Integer.parseInt(in.readLine()),
-            j = 0, min = Integer.MAX_VALUE, diffSize = 0; 
+            min = Integer.MAX_VALUE; 
         String line = in.readLine();
         
         if(line.contains("RL")){
-            int[] diff = new int[n - 1];
-            for(int i = 0; i < n - 1; i++){
-                if(line.substring(i, i + 2).equals("RL")){
-                    diff[j] = i;
-                    diffSize = j;
-                    j++;
+            char[] dir = line.toCharArray();
+            int[] arr = new int[n];
+
+            StringTokenizer tokens = new StringTokenizer(in.readLine());
+            for(int i = 0; i < n; i++){
+                arr[i] = Integer.parseInt(tokens.nextToken());
+            }
+            
+            int k;
+            for(int i = 1; i < n; i++){
+                if(dir[i - 1] == 'R' && dir[i] == 'L'){
+                    k = Math.abs(arr[i] - arr[i - 1]);
+                    min = Math.min(min, k);
                 }
             }
 
-            j = 0;
-            StringTokenizer tokens = new StringTokenizer(in.readLine());        
-            for(int i = 0; i < n && j <= diffSize; i++){
-                if(i == diff[j]){
-                    diff[j] = Math.abs(Integer.parseInt(tokens.nextToken()) - Integer.parseInt(tokens.nextToken()));
-                    min = Math.min(min, diff[j]);
-                    j++;
-                    i++;
-                }else{
-                    tokens.nextToken();
-                }
-            }
             out.println(min/2);
         }else{
             out.println(-1);
